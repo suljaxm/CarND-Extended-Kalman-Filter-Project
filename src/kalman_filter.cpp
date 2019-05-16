@@ -68,10 +68,11 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
 
   // convert current state into polar coordinate
   ro = sqrt(px * px + py * py);
-  phi = atan2(py, px);
+  
 
   if (fabs(ro) > 0.01) {
     ro_dot = (px * vx + py * vy) / ro;
+    phi = atan2(py, px);
   }
   else{ // make z_pred 0.0 if too small
     ro = 0.0;
