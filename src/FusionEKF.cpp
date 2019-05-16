@@ -148,7 +148,15 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
     ekf_.R_ = R_radar_;
     Hj_ = tools.CalculateJacobian(ekf_.x_);
     ekf_.H_ = Hj_;
-    ekf_.UpdateEKF(measurement_pack.raw_measurements_);
+
+    float ro_not0;
+    //When ro_not0 is zero or close to zero, to skip the update step for current 
+    //measurement data in order to avoid division by zero issue. 
+    //Discard a few measurements when using EKF.
+    ro_not0 = sqrt(ekf_.x_(0)*ekf_.x_(0) + ekf_.x_(1)*ekf_.x_(1));  
+    if (ro_not0 > 0.01){
+      ekf_.UpdateEKF(measurement_pack.raw_measurements_);
+    }
 
   } else {
     // TODO: Laser updates
