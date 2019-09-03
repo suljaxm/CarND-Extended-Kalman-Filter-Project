@@ -25,7 +25,7 @@ In this project I will utilize a kalman filter to estimate the state of a moving
 	sudo rm -r uWebSockets
 	```
 * [Term 2 Simulator](https://github.com/udacity/self-driving-car-sim/releases)
-	* [Windows]((https://drive.google.com/open?id=10J4N17bD7BhyW7ESzTaF_IUPveTBCZPn)
+	* [Windows](https://drive.google.com/open?id=10J4N17bD7BhyW7ESzTaF_IUPveTBCZPn)
 
 ## Basic Build Instructions
 Once the install for uWebSocketIO is complete, the main program can be built and run by doing the following from the project top directory.
